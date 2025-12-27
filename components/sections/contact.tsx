@@ -29,16 +29,19 @@ export function Contact() {
     }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-
-    // Simulate API call
-    await new Promise((resolve) => setTimeout(resolve, 2000));
-
-    setIsLoading(false);
+    
+    // Gather data from form fields
+    const { fullName, email, mobile, description } = formData;
+    const message = `*New Lead from Website!*%0A%0A*Name:* ${fullName}%0A*Email:* ${email}%0A*Mobile:* ${mobile}%0A*Project:* ${description}`;
+    
+    // Open WhatsApp
+    window.open(`https://wa.me/917028210478?text=${message}`, '_blank');
+    
+    // Show success state
     setIsSuccess(true);
-
+    
     // Reset form after success animation
     setTimeout(() => {
       setFormData({
@@ -47,6 +50,7 @@ export function Contact() {
         mobile: "",
         description: "",
       });
+      setIsSuccess(false);
     }, 3500);
   };
 

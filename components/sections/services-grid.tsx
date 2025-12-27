@@ -1,47 +1,45 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Sparkles, Video, TrendingUp, Megaphone, Search, Palette } from "lucide-react";
 import { useState } from "react";
-
-import { LucideIcon } from "lucide-react";
+import { LottieAnimation } from "@/components/ui/lottie-animation";
 
 const services = [
   {
-    icon: Sparkles,
     title: "Brand Strategy",
     description: "Craft compelling brand narratives that resonate with your audience",
+    animationSrc: "/assets/animations/brand-strategy.json",
   },
   {
-    icon: Video,
     title: "Content Production",
     description: "Cinematic visuals and engaging content that captivates",
+    animationSrc: "/assets/animations/content-production.json",
   },
   {
-    icon: TrendingUp,
     title: "Growth Marketing",
     description: "Data-driven campaigns that scale your business exponentially",
+    animationSrc: "/assets/animations/growth-marketing.json",
   },
   {
-    icon: Megaphone,
     title: "Social Media",
     description: "Build communities and drive engagement across all platforms",
+    animationSrc: "/assets/animations/social-media.json",
   },
   {
-    icon: Search,
     title: "SEO & Analytics",
     description: "Dominate search rankings with strategic optimization",
+    animationSrc: "/assets/animations/seo-analytics.json",
   },
   {
-    icon: Palette,
     title: "Design & UX",
     description: "Create stunning experiences that convert visitors to customers",
+    animationSrc: "/assets/animations/design-ux.json",
   },
 ];
 
 export function ServicesGrid() {
   return (
-    <section className="relative py-32 px-4 bg-black">
+    <section id="services" className="relative py-32 px-4 bg-black">
       <div className="max-w-7xl mx-auto">
         {/* Section Header */}
         <motion.div
@@ -74,7 +72,7 @@ function ServiceCard({
   service,
   index,
 }: {
-  service: { icon: LucideIcon; title: string; description: string };
+  service: { animationSrc: string; title: string; description: string };
   index: number;
 }) {
   const [isHovered, setIsHovered] = useState(false);
@@ -112,14 +110,14 @@ function ServiceCard({
         />
 
         {/* Card Content */}
-        <div className="relative z-10 bg-zinc-950 rounded-xl p-6 h-full flex flex-col">
-          {/* Icon */}
+        <div className="relative z-10 bg-zinc-950 rounded-xl p-6 h-full flex flex-col overflow-hidden">
+          {/* Animation as cover */}
           <motion.div
-            animate={isHovered ? { scale: 1.1, rotate: 5 } : { scale: 1, rotate: 0 }}
+            animate={isHovered ? { scale: 1.02 } : { scale: 1 }}
             transition={{ duration: 0.3 }}
-            className="mb-6"
+            className="-mx-6 -mt-6 mb-6 h-56 md:h-64 overflow-hidden rounded-t-xl bg-zinc-900/40"
           >
-            <service.icon className="w-12 h-12 text-purple-500" strokeWidth={1.5} />
+            <LottieAnimation src={service.animationSrc} className="w-full h-full" />
           </motion.div>
 
           {/* Title */}
@@ -130,15 +128,18 @@ function ServiceCard({
           {/* Description */}
           <p className="text-white/60 mb-6 flex-grow">{service.description}</p>
 
-          {/* Button that slides up */}
-          <motion.button
+          {/* WhatsApp Button that slides up */}
+          <motion.a
             initial={{ y: 20, opacity: 0 }}
             animate={isHovered ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-shadow"
+            href="https://wa.me/917028210478?text=Hello%20Shrey%20Digital,%20I%20want%20to%20enquire%20about%20your%20services."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-shadow text-center"
           >
             Enquire Now
-          </motion.button>
+          </motion.a>
         </div>
       </div>
     </motion.div>

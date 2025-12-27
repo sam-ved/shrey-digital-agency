@@ -4,6 +4,7 @@ import "./globals.css";
 import { Navbar } from "@/components/navbar";
 import { CursorEffect } from "@/components/cursor-effect";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
+import { Footer } from "@/components/footer";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -31,11 +32,13 @@ export default function RootLayout({
     <html lang="en" className="dark" suppressHydrationWarning>
       <body
         className={`${syne.variable} ${manrope.variable} font-sans antialiased bg-black text-white`}
+        suppressHydrationWarning
       >
         <SmoothScrollProvider>
           <CursorEffect />
           <Navbar />
           {children}
+          <Footer />
         </SmoothScrollProvider>
       </body>
     </html>

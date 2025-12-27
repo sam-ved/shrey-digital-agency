@@ -1,0 +1,19 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad5" x1="0%" y1="50%" x2="100%" y2="50%">
+      <stop offset="0%" style="stop-color:#10b981;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3b82f6;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="hex" width="60" height="60" patternUnits="userSpaceOnUse">
+      <path d="M30,0 L60,30 L60,90 L30,120 L0,90 L0,30 Z" fill="none" stroke="white" stroke-width="1" opacity="0.2"/>
+    </pattern>
+  </defs>
+  
+  <rect width="800" height="600" fill="url(#grad5)"/>
+  <rect width="800" height="600" fill="url(#hex)"/>
+  
+  <polygon points="400,100 600,250 400,400 200,250" fill="white" opacity="0.15"/>
+  
+  <text x="400" y="310" font-size="44" font-weight="bold" text-anchor="middle" fill="white" opacity="0.65">Mobile App</text>
+  <text x="400" y="370" font-size="22" text-anchor="middle" fill="white" opacity="0.45">Interface Design</text>
+</svg>
