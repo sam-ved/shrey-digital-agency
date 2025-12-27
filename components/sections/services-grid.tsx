@@ -1,0 +1,146 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { Sparkles, Video, TrendingUp, Megaphone, Search, Palette } from "lucide-react";
+import { useState } from "react";
+
+import { LucideIcon } from "lucide-react";
+
+const services = [
+  {
+    icon: Sparkles,
+    title: "Brand Strategy",
+    description: "Craft compelling brand narratives that resonate with your audience",
+  },
+  {
+    icon: Video,
+    title: "Content Production",
+    description: "Cinematic visuals and engaging content that captivates",
+  },
+  {
+    icon: TrendingUp,
+    title: "Growth Marketing",
+    description: "Data-driven campaigns that scale your business exponentially",
+  },
+  {
+    icon: Megaphone,
+    title: "Social Media",
+    description: "Build communities and drive engagement across all platforms",
+  },
+  {
+    icon: Search,
+    title: "SEO & Analytics",
+    description: "Dominate search rankings with strategic optimization",
+  },
+  {
+    icon: Palette,
+    title: "Design & UX",
+    description: "Create stunning experiences that convert visitors to customers",
+  },
+];
+
+export function ServicesGrid() {
+  return (
+    <section className="relative py-32 px-4 bg-black">
+      <div className="max-w-7xl mx-auto">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-20"
+        >
+          <h2 className="text-5xl md:text-7xl font-bold mb-6">
+            What We <span className="gradient-text">Create</span>
+          </h2>
+          <p className="text-xl text-white/60 max-w-2xl mx-auto">
+            Full-spectrum digital solutions for ambitious brands
+          </p>
+        </motion.div>
+
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {services.map((service, index) => (
+            <ServiceCard key={service.title} service={service} index={index} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function ServiceCard({
+  service,
+  index,
+}: {
+  service: { icon: LucideIcon; title: string; description: string };
+  index: number;
+}) {
+  const [isHovered, setIsHovered] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      onHoverStart={() => setIsHovered(true)}
+      onHoverEnd={() => setIsHovered(false)}
+      className="relative group"
+    >
+      <div className="relative h-full bg-zinc-950 border border-white/10 rounded-2xl p-8 overflow-hidden transition-all duration-500">
+        {/* Animated Gradient Border */}
+        <motion.div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          style={{
+            background: "linear-gradient(90deg, #7c3aed, #3b82f6, #7c3aed)",
+            backgroundSize: "200% 200%",
+          }}
+          animate={
+            isHovered
+              ? {
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                }
+              : {}
+          }
+          transition={{
+            duration: 3,
+            repeat: Infinity,
+            ease: "linear",
+          }}
+        />
+
+        {/* Card Content */}
+        <div className="relative z-10 bg-zinc-950 rounded-xl p-6 h-full flex flex-col">
+          {/* Icon */}
+          <motion.div
+            animate={isHovered ? { scale: 1.1, rotate: 5 } : { scale: 1, rotate: 0 }}
+            transition={{ duration: 0.3 }}
+            className="mb-6"
+          >
+            <service.icon className="w-12 h-12 text-purple-500" strokeWidth={1.5} />
+          </motion.div>
+
+          {/* Title */}
+          <h3 className="text-2xl font-bold mb-4 group-hover:text-purple-400 transition-colors">
+            {service.title}
+          </h3>
+
+          {/* Description */}
+          <p className="text-white/60 mb-6 flex-grow">{service.description}</p>
+
+          {/* Button that slides up */}
+          <motion.button
+            initial={{ y: 20, opacity: 0 }}
+            animate={isHovered ? { y: 0, opacity: 1 } : { y: 20, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="w-full py-3 px-6 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg font-semibold hover:shadow-lg hover:shadow-purple-500/50 transition-shadow"
+          >
+            Enquire Now
+          </motion.button>
+        </div>
+      </div>
+    </motion.div>
+  );
+}

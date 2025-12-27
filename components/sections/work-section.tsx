@@ -22,19 +22,19 @@ function CaseStudyCard({ client, category, description, delay = 0 }: CaseStudyPr
       initial={{ opacity: 0, y: 60 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 60 }}
       transition={{ duration: 0.7, delay }}
-      className="group relative overflow-hidden rounded-3xl bg-zinc-900/50 border border-zinc-800/50"
+      className="group relative overflow-hidden rounded-3xl bg-zinc-950 border border-white/10 hover:border-purple-500/50 transition-colors duration-500"
     >
       {/* Image/Video Placeholder - 16:9 aspect ratio */}
-      <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-zinc-800 to-zinc-900">
+      <div className="relative aspect-video overflow-hidden bg-gradient-to-br from-zinc-900 to-black">
         {/* Placeholder gradient background */}
         <motion.div
-          className="absolute inset-0 bg-gradient-to-br from-zinc-700 via-zinc-800 to-zinc-900"
+          className="absolute inset-0 bg-gradient-to-br from-purple-950/20 via-zinc-900 to-black"
           whileHover={{ scale: 1.05 }}
           transition={{ duration: 0.6, ease: "easeOut" }}
         />
 
         {/* Animated overlay on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-60 group-hover:opacity-40 transition-opacity duration-500" />
 
         {/* Video play indicator */}
         <motion.div
@@ -48,7 +48,7 @@ function CaseStudyCard({ client, category, description, delay = 0 }: CaseStudyPr
       </div>
 
       {/* Content overlay */}
-      <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-zinc-950 via-zinc-950/95 to-transparent">
+      <div className="absolute bottom-0 left-0 right-0 p-8 bg-gradient-to-t from-black via-black/95 to-transparent">
         <div className="flex items-start justify-between gap-4">
           <div>
             <p className="text-sm text-zinc-400 mb-2 uppercase tracking-wider">
@@ -73,7 +73,7 @@ function CaseStudyCard({ client, category, description, delay = 0 }: CaseStudyPr
       </div>
 
       {/* Glow effect on hover */}
-      <div className="absolute -inset-1 bg-gradient-to-r from-zinc-600/20 to-zinc-500/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
+      <div className="absolute -inset-1 bg-gradient-to-r from-purple-600/20 to-blue-600/20 rounded-3xl blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10" />
     </motion.div>
   );
 }
@@ -110,9 +110,9 @@ export function WorkSection() {
   ];
 
   return (
-    <section ref={ref} className="relative py-32 px-6 bg-zinc-950">
+    <section ref={ref} className="relative py-32 px-6 bg-black">
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-zinc-900/20 via-zinc-950 to-zinc-950" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-purple-950/10 via-black to-black" />
 
       <div className="relative max-w-7xl mx-auto">
         {/* Section Header */}
@@ -122,10 +122,10 @@ export function WorkSection() {
           transition={{ duration: 0.6 }}
           className="text-center mb-20"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent">
-            Selected Work
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            Selected <span className="gradient-text">Work</span>
           </h2>
-          <p className="text-xl text-zinc-400 max-w-2xl mx-auto">
+          <p className="text-xl text-white/60 max-w-2xl mx-auto">
             Transformative projects that pushed boundaries and delivered exceptional results.
           </p>
         </motion.div>

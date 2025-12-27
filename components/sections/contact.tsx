@@ -54,10 +54,10 @@ export function Contact() {
     <section
       id="contact"
       ref={ref}
-      className="relative py-32 px-6 bg-zinc-950 border-t border-zinc-800/50 overflow-hidden"
+      className="relative py-32 px-6 bg-black border-t border-white/10 overflow-hidden"
     >
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/20 via-zinc-950 to-zinc-950" />
+      <div className="absolute inset-0 bg-gradient-to-t from-purple-950/10 via-black to-black" />
 
       <div className="relative max-w-4xl mx-auto">
         {/* Header */}
@@ -68,10 +68,10 @@ export function Contact() {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl md:text-6xl font-bold mb-6 bg-gradient-to-r from-white via-zinc-100 to-zinc-400 bg-clip-text text-transparent">
-            Let's Create Magic
+          <h2 className="text-5xl md:text-6xl font-bold mb-6">
+            Let's Create <span className="gradient-text">Magic</span>
           </h2>
-          <p className="text-xl text-zinc-400">
+          <p className="text-xl text-white/60">
             Tell us about your vision, and we'll craft a strategy to bring it to life.
           </p>
         </motion.div>

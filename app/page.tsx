@@ -1,13 +1,15 @@
-import { Hero } from "@/components/sections/hero";
-import { BentoGrid } from "@/components/sections/bento-grid";
+import { VideoHero } from "@/components/sections/video-hero";
+import { ServicesGrid } from "@/components/sections/services-grid";
+import { StatsSection } from "@/components/sections/stats-section";
 import { WorkSection } from "@/components/sections/work-section";
 import { Contact } from "@/components/sections/contact";
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden">
-      <Hero />
-      <BentoGrid />
+    <main className="overflow-x-hidden bg-black">
+      <VideoHero />
+      <StatsSection />
+      <ServicesGrid />
       <WorkSection />
       <Contact />
     </main>
