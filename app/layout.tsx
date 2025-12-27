@@ -5,6 +5,7 @@ import { Navbar } from "@/components/navbar";
 import { CursorEffect } from "@/components/cursor-effect";
 import { SmoothScrollProvider } from "@/components/smooth-scroll-provider";
 import { Footer } from "@/components/footer";
+import { Analytics } from "@vercel/analytics/next";
 
 const syne = Syne({
   variable: "--font-syne",
@@ -39,6 +40,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <Analytics />
         </SmoothScrollProvider>
       </body>
     </html>
